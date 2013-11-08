@@ -1,4 +1,5 @@
 get '/' do
-  # Look in app/views/index.erb
+ # home page all surveys listed
+ # Look in app/views/index.erb
   erb :index
 end
