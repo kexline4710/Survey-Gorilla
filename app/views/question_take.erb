@@ -1,0 +1,12 @@
+<div class="container">
+    DISPLAY FIRST QUESTION!
+    <h1><%= @survey.title %></h1>
+
+    <p><%= @question.q_content %></p>
+    <form action="/surveys/<%= @survey.id %>/questions/<%= @question.id %>/answers_users" method="POST">
+      <input type="radio" name="possible_answer_id" value="<%= @question.possible_answers.first.id%>">&nbsp<%= @question.possible_answers.first.a_content %><br>
+      <input type="radio" name="possible_answer_id" value="<%= @question.possible_answers.last.id%>">&nbsp<%= @question.possible_answers.last.
+      a_content %><br>
+      <input type="submit" value="submit">
+    </form>
+</div>

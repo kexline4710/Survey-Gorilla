@@ -4,7 +4,10 @@
   <h2>Surveys You Can Take: </h2>
   <ul>
     <% @surveys.each do |survey_obj| %>
-      <li><a href=""><%= survey_obj.title %></a></li>
+      <li><form action="/surveys/<%= survey_obj.id %>/taken_surveys" method="POST">
+        <input type="submit" value="<%= survey_obj.title %>">
+      </form>
+      </li>
     <% end %>
   </ul>
 </div>
