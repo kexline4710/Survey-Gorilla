@@ -12,7 +12,7 @@ gem 'thin'
 
 gem 'activesupport'
 gem 'activerecord'
-
+gem 'debugger'
 gem 'rake'
 
 gem 'shotgun'
