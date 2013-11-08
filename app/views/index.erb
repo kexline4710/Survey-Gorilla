@@ -1,23 +1,13 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+  <h1>Welcome to Survey Gorilla!</h1>
 
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
+  <h2>Surveys You Can Take: </h2>
+  <ul>
+    <% @surveys.each do |survey_obj| %>
+      <li><form action="/surveys/<%= survey_obj.id %>/taken_surveys" method="POST">
+        <input type="submit" value="<%= survey_obj.title %>">
+      </form>
+      </li>
+    <% end %>
+  </ul>
 </div>
