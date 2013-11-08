@@ -1,35 +1,47 @@
+enable :sessions
+
 get '/surveys/new' do
 
   # form to create the title, image
   #button to post and go to first question
-
+erb :survey_new
 end
 
 
 post '/surveys' do
 
-#create the survey with id 1
-#later session id
-# redirect to question page
+session[:user_id] = User.first.id
+survey_title = params[:survey_title]
+survey = Survey.create(title: survey_title, user_id: session[:user_id])
+redirect("/surveys/#{survey.id}/questions/new")
 end
 
 get '/surveys/:survey_id/questions/new' do
+@survey_id = params[:survey_id]
 
-#create questions with possible answers
-# button to add more answers (later, AJAX ME UP)
-# button to create another question, send to post, and redirect back
-#finish goes to the review page
+erb :surveys_questions_new
 end
 
 post '/surveys/:survey_id/questions' do
-#write question/answer with the survey_id to database
-# if statement here
-#redirect to "get" page
-#else send to review page
-end
+  survey = Survey.find(params[:survey_id])
+  survey.questions.create(:q_content => params[:survey_question])
+
+  question = survey.questions.last
+  params[:answer].length.times do |i|
+    puts params[:answer][i.to_s]
+    question.possible_answers.create(a_content: params[:answer][i.to_s])
+  end
+    if params[:finish]== "true"
+      redirect to "/surveys/#{survey.id}/review"
+    else
+      redirect to "/surveys/#{survey.id}/questions/new"
+  end
+end  
+
 
 get '/surveys/:survey_id/review' do
 #show all survey info.
 #submit button-returns to '/'
 #edit button(ajax,)
+erb :review
 end

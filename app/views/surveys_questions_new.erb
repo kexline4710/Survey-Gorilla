@@ -1,0 +1,26 @@
+<div class="container survey_container">
+  <form action='/surveys/<%= @survey_id %>/questions' class="form" method="POST">
+    <p>
+      <label>Please enter a survey question</label>
+      <input type="text" name="survey_question"/>
+    </p>
+    <p>
+      <label>Please enter a possible answer.</label>
+      <input type="text" name="answer[0]"/>
+    </p>
+    <p>
+      <label>Please enter a possible answer.</label>
+      <input type="text" name="answer[1]"/>
+    </p>
+    <p>
+      <button class="create_new_answer">Add additional Answer</button>
+    <p>
+      <input type="submit" value="Add Question"/>
+      <input type="hidden" name="finish" value="false"/>
+    </p>  
+    <p>
+      <input type="submit" value="Finish and Review Survey"/>
+      <input type="hidden" name="finish" value="true"/>
+    </p>
+  </form>
+</div>
