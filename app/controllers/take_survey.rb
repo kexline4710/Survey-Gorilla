@@ -19,28 +19,23 @@ get '/surveys/:survey_id/questions/:question_id' do
 end
 
 post '/surveys/:survey_id/questions/:question_id/answers_users' do
-# creates answer_user with id 2
-# if last question
-# get "results"
-# else
-# redirect get next question
   survey = Survey.find(params[:survey_id])
   question  = Question.find(params[:question_id])
   AnswersUser.create(user_id: 2, possible_answer_id: params[:possible_answer_id])
   next_question = next_question(survey)
-  # puts "********************************************"
-  # puts next_question.inspect
-  # puts "********************************************"
-
-  # survey_questions.find_by_qcontent(question.q_content)
   if next_question != nil
     redirect to "/surveys/#{survey.id}/questions/#{next_question.id}"
   else
-    redirect to "/"
+    redirect to "/surveys/#{survey.id}/results"
   end
 end
 
 get '/surveys/:survey_id/results' do
 # individual's results and aggregate
 # go home button
+  @survey = Survey.find(params[:survey_id])
+  @questions = @survey.questions
+  @taken_survey = TakenSurvey.find_by_user_id_and_survey_id(2,1)
+  @users_responses = @survey.answers_users.where("user_id = ?", 2)
+  erb :results
 end
