@@ -1,0 +1,8 @@
+<div class="container">
+
+  <h1>Your results for "<%= @survey.title%>"</h1>
+  <% @users_responses.each do |response| %>
+    <h2><%= response.possible_answer.question.q_content %></h2>
+      <p>Your answer was: <%= response.possible_answer.a_content %></p>
+  <% end %>
+</div>
