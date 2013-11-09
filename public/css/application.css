@@ -70,7 +70,7 @@ a:visited{
     padding-top: 16px;
 }
 
-h1 {
+.top-nav h1 {
     font-size: 32px;
     color: white;
     display: inline;
@@ -84,7 +84,6 @@ h1 {
     padding-right: 8px;
     float: right;
     }
-
 
 .content  {
     margin: 0px auto;
@@ -109,5 +108,10 @@ h2 {
     font-size: 24px;
     font-weight: bold;
     line-height: 48px;
+}
+
+.resultstables td{
+  border: solid 1px gray;
+  padding: 5px;
 }
 
