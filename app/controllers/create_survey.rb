@@ -31,17 +31,25 @@ post '/surveys/:survey_id/questions' do
     puts params[:answer][i.to_s]
     question.possible_answers.create(a_content: params[:answer][i.to_s])
   end
-    if params[:finish] == "true"
-      redirect to "/surveys/#{survey.id}/questions/new"
-      
-    else
-      redirect to "/surveys/#{survey.id}/review"
+
+
+  if params[:add]
+    redirect to "/surveys/#{survey.id}/questions/new"
+    
+  else
+    @survey = survey
+    erb :surveys_change 
   end
 end  
 
 
 get '/surveys/:survey_id/review' do
   @survey = Survey.find(params[:survey_id])
+  puts "****************************************"
+  puts params[:survey_id]
+  puts "****************************************"
+
+
 #show all survey info.
 #submit button-returns to '/'
 #edit button(ajax,)
@@ -50,7 +58,9 @@ erb :surveys_review
 end
 
 
-post '/surveys/:survey_id/review' do
+
+
+post '/surveys/:survey_id/changes' do
 
 survey = Survey.find(params[:survey_id])
 survey.questions.each do |question|
@@ -60,7 +70,7 @@ survey.questions.each do |question|
     answer.update_attributes(a_content: params[:answer][answer.id.to_s])
  end
 end
-survey.save
+# survey.save
 redirect to "/surveys/#{params[:survey_id]}/review"
 end
 
