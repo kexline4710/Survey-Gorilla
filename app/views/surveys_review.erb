@@ -1,0 +1,35 @@
+<ul class="top of review">
+  <li><a href="#edit">Edit</a></li>
+  <li><a href="#view">View Completed Survey</a></li>
+</ul>
+
+<div id="edit" class="forms">
+  <h1><%= @survey.title %></h1>
+
+    <% @survey.questions.each do |question| %>
+      <fieldset>
+        <input type="text" value="<%= question.q_content %>"/>
+      </fieldset>
+      <fieldset>
+        <% question.possible_answers.each do |answer| %>
+        
+          <input type="text" value="<%= answer.a_content %>"/>
+        <% end %>
+      </fieldset>
+    <% end %>  
+</div>
+
+<div id="view" class="forms">
+  <h1><%= @survey.title %></h1>
+
+    <% @survey.questions.each do |question| %>
+      <fieldset>
+          <span> <%= question.q_content %> </span>
+            <ul>
+              <% question.possible_answers.each do |answer| %>
+                <li><input type="checkbox"/><%= answer.a_content %></li>
+              <% end %>
+            <ul> 
+      </fieldset>
+    <% end %>  
+</div>
