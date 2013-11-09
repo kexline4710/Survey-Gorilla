@@ -14,8 +14,8 @@
     new_question = unanswered_questions.shift
   end
 
-end
+  def response_count(possible_answer)
+    AnswersUser.where("possible_answer_id = ?", possible_answer.id).length
+  end
 
-# All survey questions: [#<Question id: 1, survey_id: 1, q_content: "Why are we here?", file: nil, created_at: "2013-11-09 13:34:32", updated_at: "2013-11-09 13:34:32">, #<Question id: 2, survey_id: 1, q_content: "What will Alex draw next?", file: nil, created_at: "2013-11-09 13:34:32", updated_at: "2013-11-09 13:34:32">]
-# All answered questions: [#<Question id: 1, survey_id: 1, q_content: "Why are we here?", file: nil, created_at: "2013-11-09 13:34:32", updated_at: "2013-11-09 13:34:32">, #<Question id: 2, survey_id: 1, q_content: "What will Alex draw next?", file: nil, created_at: "2013-11-09 13:34:32", updated_at: "2013-11-09 13:34:32">]
-# All unanswered_questions[]
+end
