@@ -7,12 +7,13 @@
   <input type="submit" value="Profile">
 </form>
 
-  <% else %>
 
+  <% else %>
+    <% if @login_page.nil? %>
 <form action="/login_page" method get>
     <input type="submit" value="Login">
 </form>
-
+    <% end %>
   <% end %>
  
 

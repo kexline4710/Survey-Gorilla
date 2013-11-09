@@ -7,11 +7,6 @@ get '/surveys/new' do
 erb :survey_new
 end
 
-get '/start' do
-  erb :start
-
-end
-
 post '/surveys' do
 
 session[:user_id] = User.first.id
@@ -36,47 +31,35 @@ post '/surveys/:survey_id/questions' do
     question.possible_answers.create(a_content: params[:answer][i.to_s])
   end
 
-
   if params[:add]
     redirect to "/surveys/#{survey.id}/questions/new"
     
   else
     @survey = survey
     erb :surveys_change 
-
   end
 end  
 
 
 get '/surveys/:survey_id/review' do
   @survey = Survey.find(params[:survey_id])
-  puts "****************************************"
-  puts params[:survey_id]
-  puts "****************************************"
 
-
-#show all survey info.
-#submit button-returns to '/'
-#edit button(ajax,)
-
-erb :surveys_review
+  erb :surveys_review
 end
 
 
 
 
 post '/surveys/:survey_id/changes' do
+  survey = Survey.find(params[:survey_id])
 
-survey = Survey.find(params[:survey_id])
-survey.questions.each do |question|
-  
-  question.update_attributes(q_content: params[:question][question.id.to_s])
-  question.possible_answers.each do |answer|
-    answer.update_attributes(a_content: params[:answer][answer.id.to_s])
- end
-end
-# survey.save
-redirect to "/surveys/#{params[:survey_id]}/review"
+  survey.questions.each do |question| 
+   question.update_attributes(q_content: params[:question][question.id.to_s])
+    question.possible_answers.each do |answer|
+      answer.update_attributes(a_content: params[:answer][answer.id.to_s])
+    end
+  end
+  redirect to "/surveys/#{params[:survey_id]}/review"
 end
 
 
