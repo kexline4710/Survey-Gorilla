@@ -15,9 +15,9 @@ clay_survey_q2_a1 = PossibleAnswer.create(a_content: "An olitaur.")
 clay_survey_q2_a2 = PossibleAnswer.create(a_content: "Himself riding an olitaur.")
 clay_survey_q2.possible_answers << clay_survey_q2_a1
 clay_survey_q2.possible_answers << clay_survey_q2_a2
-jane.taken_surveys << TakenSurvey.create(survey_id: clay_survey.id)
-jane.answers_users << AnswersUser.create(possible_answer_id: clay_survey_q1_a1.id)
-jane.answers_users << AnswersUser.create(possible_answer_id: clay_survey_q2_a2.id)
+# jane.taken_surveys << TakenSurvey.create(survey_id: clay_survey.id)
+# jane.answers_users << AnswersUser.create(possible_answer_id: clay_survey_q1_a1.id)
+# jane.answers_users << AnswersUser.create(possible_answer_id: clay_survey_q2_a2.id)
 
 
 
