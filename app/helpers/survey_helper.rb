@@ -1,22 +1,21 @@
-helpers do
+    helpers do
   def next_question(survey)
-    all_survey_questions = question.survey.questions
+    users_answers_all = AnswersUser.where("user_id = ?", 2)
+    answered_questions= []
 
-    survey.id ==
-    AnswersUser.where("user_id = ? AND possible_answer")
-    answered_questions = []
-
-    correct_attempts = Attempt.where(round_id: round.id, correct: true)
-    correct_attempts.each do |attempt|
-      answered_questionss << Card.find_by_id(attempt.card_id)
+    users_answers_all.each do |answer|
+      if answer.possible_answer.question.survey.id.to_s == survey.id.to_s
+        answered_questions << answer.possible_answer.question
+      end
     end
 
-    unanswered_cards = deck.cards - answered_cards
-    new_card = unanswered_cards.sample
+    all_survey_questions = survey.questions
+    unanswered_questions = all_survey_questions - answered_questions
+    new_question = unanswered_questions.shift
   end
+
 end
 
-# Want a collection of questions
-# AnswersUser = user_id
-#&&
-# AnswersUser.possible_answer.question.survey = survey
+# All survey questions: [#<Question id: 1, survey_id: 1, q_content: "Why are we here?", file: nil, created_at: "2013-11-09 13:34:32", updated_at: "2013-11-09 13:34:32">, #<Question id: 2, survey_id: 1, q_content: "What will Alex draw next?", file: nil, created_at: "2013-11-09 13:34:32", updated_at: "2013-11-09 13:34:32">]
+# All answered questions: [#<Question id: 1, survey_id: 1, q_content: "Why are we here?", file: nil, created_at: "2013-11-09 13:34:32", updated_at: "2013-11-09 13:34:32">, #<Question id: 2, survey_id: 1, q_content: "What will Alex draw next?", file: nil, created_at: "2013-11-09 13:34:32", updated_at: "2013-11-09 13:34:32">]
+# All unanswered_questions[]
