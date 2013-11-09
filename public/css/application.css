@@ -54,3 +54,60 @@ a:visited{
   color: black;
 }
 
+.top-nav {
+    background-color: grey;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    height: 64px;
+
+}
+
+.top-nav .container {
+    width: 400px;
+    margin: 0px auto;
+    vertical-align: middle;
+    padding-top: 16px;
+}
+
+h1 {
+    font-size: 32px;
+    color: white;
+    display: inline;
+}
+
+.top-nav ul, li, a {
+    display: inline;
+    text-decoration: none;
+    font-family: sans-serif;
+    color: white;
+    padding-right: 8px;
+    float: right;
+    }
+
+
+.content  {
+    margin: 0px auto;
+    width: 400px;
+    z-index: -1;
+}
+
+p {
+    font-family: Georgia, serif;
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 8px;
+}
+
+h1, h2, h3 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 48px;
+}
+
