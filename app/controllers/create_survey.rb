@@ -31,11 +31,11 @@ post '/surveys/:survey_id/questions' do
     puts params[:answer][i.to_s]
     question.possible_answers.create(a_content: params[:answer][i.to_s])
   end
-    if params[:finish]== "true"
-      
-      redirect to "/surveys/#{survey.id}/review"
-    else
+    if params[:finish] == "true"
       redirect to "/surveys/#{survey.id}/questions/new"
+      
+    else
+      redirect to "/surveys/#{survey.id}/review"
   end
 end  
 
@@ -54,12 +54,14 @@ post '/surveys/:survey_id/review' do
 
 survey = Survey.find(params[:survey_id])
 survey.questions.each do |question|
-  question.update_attribute(:q_content, params[:question][question.id])
+  
+  question.update_attributes(q_content: params[:question][question.id.to_s])
   question.possible_answers.each do |answer|
-    answer.update_attribute(:a_content, params[:answer][answer.id])
+    answer.update_attributes(a_content: params[:answer][answer.id.to_s])
  end
 end
-
+survey.save
+redirect to "/surveys/#{params[:survey_id]}/review"
 end
 
 
