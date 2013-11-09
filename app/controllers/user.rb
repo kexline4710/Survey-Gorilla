@@ -8,11 +8,11 @@ get '/login_page' do
 end
 
 post '/login' do
-  if User.where(username: params[:username]) 
-    user = User.where(username: params[:username])
+  if User.find_by_username(params[:username]) 
+    user = User.find_by_username(params[:username])
   end
   if user.password == params[:password]
-    session[:user_id] = User.where(username: params[:username]).id
+    session[:user_id] = User.find_by_username(params[:username]).id
     redirect '/profile'
     @user = user
   else
