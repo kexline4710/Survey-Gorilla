@@ -3,6 +3,10 @@
   <h1>Your results for "<%= @survey.title%>"</h1>
   <% @users_responses.each do |response| %>
     <h2><%= response.possible_answer.question.q_content %></h2>
-      <p>Your answer was: <%= response.possible_answer.a_content %></p>
+          <!-- print all of the responses with count -->
+        <%response.possible_answer.question.possible_answers.each do |poss_answer| %>
+          <p><%= poss_answer.a_content %>    <%= response_count(poss_answer)%></p>
+        <% end %>
+      <p><strong>Your answer was: </strong><%= response.possible_answer.a_content %></p>
   <% end %>
 </div>

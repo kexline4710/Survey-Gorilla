@@ -1,11 +1,12 @@
 <div class="container">
     <h1><%= @survey.title %></h1>
 
-    <p><%= @question.q_content %></p>
+    <div class="question"><%= @question.q_content %></div>
     <form action="/surveys/<%= @survey.id %>/questions/<%= @question.id %>/answers_users" method="POST">
-      <input type="radio" name="possible_answer_id" value="<%= @question.possible_answers.first.id%>">&nbsp<%= @question.possible_answers.first.a_content %><br>
-      <input type="radio" name="possible_answer_id" value="<%= @question.possible_answers.last.id%>">&nbsp<%= @question.possible_answers.last.
-      a_content %><br>
+      <% @question.possible_answers.each do |possible_answer| %>
+      <input type="radio" class="choices" name="possible_answer_id" value="<%= possible_answer.id %>">&nbsp<%= possible_answer.a_content %><br>
+      <br>
+      <% end %>
       <input type="submit" value="submit">
     </form>
 </div>
