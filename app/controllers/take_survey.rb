@@ -7,7 +7,7 @@ post '/surveys/:survey_id/taken_surveys' do
 # redirect get first question
   redirect to "/surveys/#{current_survey.id}/questions/1"
 end
-
+ 
 get '/surveys/:survey_id/questions/:question_id' do
   @survey = Survey.find(params[:survey_id])
   @question = Question.find(params[:question_id])
