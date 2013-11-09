@@ -1,0 +1,22 @@
+
+<div id="edit" class="forms">
+  <h1><%= @survey.title %></h1>
+<form action="/surveys/<%= @survey.id%>/changes" method="POST">
+  <% questions = @survey.questions.order("id asc") %>
+    <% questions.each do |question| %>
+      <fieldset>
+        <input type="text" value="<%= question.q_content %>" name="question[<%= question.id %>]"/>
+      </fieldset>
+      <fieldset>
+        <% answers = question.possible_answers.order("id asc") %>
+        <% answers.each do |answer| %>
+        
+          <input type="text" value="<%= answer.a_content %>" name="answer[<%= answer.id%>]"/>
+        <% end %>
+      </fieldset>
+    <% end %> 
+    
+      <input type="submit" value="Finish!"/>
+    </form>   
+   
+</div>

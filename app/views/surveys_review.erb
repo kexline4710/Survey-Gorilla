@@ -1,41 +1,27 @@
 <!-- <ul class="top of review">
   <li><a href="#edit">Edit</a></li>
-  <li><a href="#view">View Completed Survey</a></li>
+<<<<<<< HEAD
+  <li class= "edit"><button><a href="#view">View Completed Survey</a></button></li>
 </ul> -->
 
-<div id="edit" class="forms">
-  <h1><%= @survey.title %></h1>
-<form action="/surveys/<%= @survey.id%>/review" method="POST">
-    <% @survey.questions.each do |question| %>
-      <fieldset>
-        <input type="text" value="<%= question.q_content %>" name="question[<%= question.id %>]"/>
-      </fieldset>
-      <fieldset>
-        <% question.possible_answers.each do |answer| %>
-        
-          <input type="text" value="<%= answer.a_content %>" name="answer[<%= answer.id%>]"/>
-        <% end %>
-      </fieldset>
-    <% end %> 
-    
-      <input class="edit_submit" type="submit" value="Edit"/>
-    </form>  
-</div>
+
 
 <div id="view" class="forms">
   <h1><%= @survey.title %></h1>
-
-    <% @survey.questions.each do |question| %>
+    <% questions = @survey.questions.order("id asc") %>
+    <% questions.each do |question| %>
       <fieldset>
           <span> <%= question.q_content %> </span>
             <ul>
-              <% question.possible_answers.each do |answer| %>
-                <li><input type="checkbox"/><%= answer.a_content %></li>
+              <% answers = question.possible_answers.order("id asc") %>
+              <% answers.each do |answer| %>
+                <li><input type="radio"/><%= answer.a_content %></li>
               <% end %>
             <ul> 
       </fieldset>
     <% end %> 
-    <form action='/' method="POST">
-      <input type="submit" value="Finish!"/>
-    </form>   
+    <form action='/' >
+      <input type="submit" value="Finalize"/>
+    </form> 
+
 </div>
