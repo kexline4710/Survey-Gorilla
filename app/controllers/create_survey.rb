@@ -7,6 +7,10 @@ get '/surveys/new' do
 erb :survey_new
 end
 
+get '/start' do
+  erb :start
+
+end
 
 post '/surveys' do
 
@@ -25,17 +29,17 @@ end
 post '/surveys/:survey_id/questions' do
   survey = Survey.find(params[:survey_id])
   survey.questions.create(:q_content => params[:survey_question])
-
   question = survey.questions.last
+  
   params[:answer].length.times do |i|
     puts params[:answer][i.to_s]
     question.possible_answers.create(a_content: params[:answer][i.to_s])
   end
-    if params[:finish] == "true"
-      redirect to "/surveys/#{survey.id}/questions/new"
-      
-    else
-      redirect to "/surveys/#{survey.id}/review"
+
+  if params[:add]  
+    redirect to "/surveys/#{survey.id}/questions/new"
+  else
+    redirect to "/surveys/#{survey.id}/review"
   end
 end  
 
