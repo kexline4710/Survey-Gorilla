@@ -15,9 +15,12 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
 </head>
 <body>
+  <div class="top-nav">
+  <h1>Boys Against Girls</h1>
+    <%= erb :_login_logout, :layout => false %>
+  </div>
   <%= yield %>
 </body>
 </html>
