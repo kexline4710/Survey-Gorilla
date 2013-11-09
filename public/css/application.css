@@ -1,8 +1,38 @@
+/*possible color scheme colors
+medium blue: #38627E
+darker blue gray: #374F5E
+darkest blue: #123952
+light medium blue: #6F9FBE
+light blue: #84ABE*/
+/*
+
+
+/*possible color scheme colors
+medium light blue cyan: #00ACE9
+warm bright red: #D43F3F
+med sap green: #6A9A1F
+warm light beige: #F6F6E8
+dark warm gray: #404040   */
+/*
+
 .container {
   margin: 20px auto;
   width: 600px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  border: 1px dotted #123952;
+  color: #38627E;
+}
+th {
+  text-align: left;
+}
+*/
+
+.container {
+  margin: 20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted #404040;
+  color: #404040;
 }
 th {
   text-align: left;

@@ -25,7 +25,7 @@ post '/surveys/:survey_id/questions/:question_id/answers_users' do
 # else
 # redirect get next question
   question  = Question.find(params[:question_id])
-  # next_question(survey)
+  next_question(survey)
 
   # survey_questions.find_by_qcontent(question.q_content)
   AnswersUser.create(user_id: 3, possible_answer_id: params[:possible_answer_id])
