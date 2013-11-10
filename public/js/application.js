@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+$(".newQuestion").hide();
 // $("#view.forms").hide()
 	$("forms").click(function(){
 		var idToShow = $(this).attr("href");
@@ -81,8 +81,11 @@ function submitForm(){
 
 		$.post(url, data, function(user_object){
 			var message = "Question Created";
-			$(".newQuestion").html(message);
 			$(".form")[0].reset();
+			$(".newQuestion").fadeIn(2000, function(){
+				$(".newQuestion").hide();
+			});
+			
 
 			// get request happens after post 
 		});	

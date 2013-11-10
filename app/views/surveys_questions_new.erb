@@ -1,7 +1,5 @@
 <div class="container survey_container">
 
-  <div class="newQuestion"></div>
-
   <form action='/surveys/<%= @survey_id %>/edit' class="form" method="POST">
     <div id="addInput">
       <p>
@@ -21,9 +19,13 @@
      <p>  
       <input type="submit" class="question" name="add" value="Add Question"/> </p>
       <!-- <a href='#' id="finishReview"/><button>Finish and Review</button></a> -->
-      <a href="/surveys/<%= @survey_id %>/changes" id="finishReview">Finish and Review</a>
+      <a href="/surveys/<%= @survey_id %>/changes" id="finishReview"><button>Finish and Review</button></a>
     </p>  
 
   </form>
    <a href="#" id="createNewAnswer"><button>Add additional Answer</button></a>
+   <br>
+   <br>
+
+   <div align="center" class="newQuestion"> Question Created</div>
 </div>
