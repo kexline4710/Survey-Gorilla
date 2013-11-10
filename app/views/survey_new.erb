@@ -4,7 +4,7 @@
       <label>Please enter a survey title</label>
       <input type="text" name="survey_title"/>
     </p>
-    <p> 
+    <p>
       <label>Upload a picture(placeholder)</label>
       <input/>
     </p>
@@ -12,4 +12,7 @@
       <input type="submit" value="Submit"/>
     </p>
   </form>
+  <% if @error_message %>
+    <p><%= @error_message%></p>
+  <% end %>
 </div>
