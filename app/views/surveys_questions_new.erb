@@ -1,24 +1,28 @@
 <div class="container survey_container">
+  <div class="newQuestion"></div>
+
   <form action='/surveys/<%= @survey_id %>/questions' class="form" method="POST">
-    <p>
+    <div id="addInput">
+      <p>
       <label>Please enter a survey question</label>
       <input type="text" name="survey_question"/>
-    </p>
-    <p>
+      </p>
+      <p>
       <label>Please enter a possible answer.</label>
       <input type="text" name="answer[0]"/>
-    </p>
-    <p>
+      </p>
+      <p>
       <label>Please enter a possible answer.</label>
       <input type="text" name="answer[1]"/>
-    </p>
-    <p>
-      <button class="create_new_answer">Add additional Answer</button>
-    <p>
-
-      <input type="submit" name="add" value="Add Question" />
-      <input type="submit" value="Finish and Review">
+      </p>
+    </div>  
+    
+     <p>  
+      <input type="submit" class="question" name="add" value="Add Question"/> </p>
+      <!-- <a href='#' id="finishReview"/><button>Finish and Review</button></a> -->
+      <a href="/surveys/<%= @survey_id %>/changes" id="finishReview">Finish and Review</a>
     </p>  
 
   </form>
+   <a href="#" id="createNewAnswer"><button>Add additional Answer</button></a>
 </div>
