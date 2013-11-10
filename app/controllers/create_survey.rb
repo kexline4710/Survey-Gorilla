@@ -21,7 +21,7 @@ get '/surveys/:survey_id/questions/new' do
   erb :surveys_questions_new
 end
 
-post '/surveys/:survey_id/questions' do
+post '/surveys/:survey_id/edit' do
   survey = Survey.find(params[:survey_id])
   survey.questions.create(:q_content => params[:survey_question])
   question = survey.questions.last
@@ -36,10 +36,18 @@ post '/surveys/:survey_id/questions' do
   end
 end  
 
+
+get '/surveys/:survey_id/edit_more' do
+  @survey = Survey.find(params[:survey_id])
+  erb :surveys_change
+
+end
+
 get '/surveys/:survey_id/changes' do
 
 @survey = Survey.find(params[:survey_id])
 erb :surveys_change
+
 
 end
 
@@ -48,10 +56,6 @@ get '/surveys/:survey_id/review' do
 
   erb :surveys_review
 end
-
-
-
-
 
 post '/surveys/:survey_id/changes' do
   survey = Survey.find(params[:survey_id])
