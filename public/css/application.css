@@ -54,6 +54,18 @@ a:visited{
   color: black;
 }
 
+.newQuestion{
+
+  border: 1px solid;
+  border-color: lightblue;
+  color: black;
+  border-radius: 15px;
+  background-color: lightblue;
+  width: 300px;
+  box-shadow: 10px 10px 5px #888888;
+  margin: 0 auto;
+
+}
 /*.top-nav {
     background-color: grey;
     width: 100%;
