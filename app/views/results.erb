@@ -1,0 +1,13 @@
+<div class="container">
+
+  <h1>Your results for "<%= @survey.title%>"</h1>
+  <% @users_responses.each do |response| %>
+    <h2><%= response.possible_answer.question.q_content %></h2>
+          <table class="resultstables">
+        <%response.possible_answer.question.possible_answers.each do |poss_answer| %>
+          <p><tr><td><%= poss_answer.a_content %></td><td><%= response_count(poss_answer)%></td></tr></p>
+        <% end %>
+      </table>
+      <p><strong>Your answer was: </strong><%= response.possible_answer.a_content %></p>
+  <% end %>
+</div>
