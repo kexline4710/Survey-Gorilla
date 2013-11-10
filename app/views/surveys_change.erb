@@ -1,7 +1,12 @@
 
 <div id="edit" class="forms">
-  <h1><%= @survey.title %></h1>
+  <!-- <h1><%= @survey.title %></h1> -->
 <form action="/surveys/<%= @survey.id%>/changes" method="POST">
+  <fieldset>
+    <h1><%= @survey.title %></h1>
+    <input type='text' value="<%= @survey.title%>">
+  
+</fieldset>
   <% questions = @survey.questions.order("id asc") %>
     <% questions.each do |question| %>
       <fieldset>

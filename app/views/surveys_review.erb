@@ -4,6 +4,7 @@
     <% questions = @survey.questions.order("id asc") %>
     <% questions.each do |question| %>
       <fieldset>
+        
           <span> <%= question.q_content %> </span>
             <ul>
               <% answers = question.possible_answers.order("id asc") %>
