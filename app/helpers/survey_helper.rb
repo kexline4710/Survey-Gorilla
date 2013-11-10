@@ -1,8 +1,9 @@
 helpers do
   def next_question(survey)
-    users_answers_all = AnswersUser.where("user_id = ?", 2)
+    users_answers_all = AnswersUser.where("user_id = ?", session[:user_id])
     answered_questions= []
 
+    # debugger
     users_answers_all.each do |answer|
       if answer.possible_answer.question.survey.id.to_s == survey.id.to_s
         answered_questions << answer.possible_answer.question

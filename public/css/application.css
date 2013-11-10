@@ -27,6 +27,25 @@ th {
 }
 */
 
+/* possible color scheme colors
+dark red brown: #660000
+black-brown: #330000
+med sap green: #6A9A1F
+warmish red: #CC3300
+medium yellow: #FFCC00   */
+
+
+
+body
+{
+background-image:url('http://i.minus.com/i5fK21aoXbxR8.png');
+background-repeat:no-repeat;
+background-position:left top;
+font-family: 'Roboto', sans-serif;
+color: #330000;
+
+}
+
 .container {
   margin: 20px auto;
   width: 600px;
