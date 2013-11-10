@@ -1,4 +1,4 @@
-    helpers do
+helpers do
   def next_question(survey)
     users_answers_all = AnswersUser.where("user_id = ?", 2)
     answered_questions= []
@@ -17,5 +17,4 @@
   def response_count(possible_answer)
     AnswersUser.where("possible_answer_id = ?", possible_answer.id).length
   end
-
 end

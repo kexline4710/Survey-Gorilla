@@ -1,21 +1,15 @@
-<!-- <ul class="top of review">
-  <li><a href="#edit">Edit</a></li>
-<<<<<<< HEAD
-  <li class= "edit"><button><a href="#view">View Completed Survey</a></button></li>
-</ul> -->
-
-
 
 <div id="view" class="forms">
   <h1><%= @survey.title %></h1>
     <% questions = @survey.questions.order("id asc") %>
     <% questions.each do |question| %>
       <fieldset>
+        
           <span> <%= question.q_content %> </span>
             <ul>
               <% answers = question.possible_answers.order("id asc") %>
               <% answers.each do |answer| %>
-                <li><input type="radio"/><%= answer.a_content %></li>
+                <li><input type="radio" disabled="disabled"/><%= answer.a_content %></li>
               <% end %>
             <ul> 
       </fieldset>

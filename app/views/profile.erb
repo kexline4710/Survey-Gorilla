@@ -1,6 +1,6 @@
 <div class='container'>
-  <h2> Welcome <%= @user.username %> </h2>
-  <h3> Your Survey's </h3>
+  
+  <h1> Your Surveys </h1>
     <% surveys = @user.surveys %>
     <% surveys.each do |survey| %>
     <h4> <%= survey.title %> </h4>
