@@ -9,7 +9,7 @@ end
 
 post '/surveys' do
 
-  session[:user_id] = User.first.id
+  # session[:user_id] = User.first.id
   survey_title = params[:survey_title]
   survey = Survey.create(title: survey_title, user_id: session[:user_id])
   if survey.id
