@@ -4,21 +4,21 @@ get '/surveys/new' do
 
   # form to create the title, image
   #button to post and go to first question
-erb :survey_new
+  erb :survey_new
 end
 
 post '/surveys' do
 
-session[:user_id] = User.first.id
-survey_title = params[:survey_title]
-survey = Survey.create(title: survey_title, user_id: session[:user_id])
-redirect("/surveys/#{survey.id}/questions/new")
+  session[:user_id] = User.first.id
+  survey_title = params[:survey_title]
+  survey = Survey.create(title: survey_title, user_id: session[:user_id])
+  redirect("/surveys/#{survey.id}/questions/new")
 end
 
 get '/surveys/:survey_id/questions/new' do
-@survey_id = params[:survey_id]
+  @survey_id = params[:survey_id]
 
-erb :surveys_questions_new
+  erb :surveys_questions_new
 end
 
 post '/surveys/:survey_id/questions' do
@@ -32,14 +32,16 @@ post '/surveys/:survey_id/questions' do
   end
 
   if params[:add]
-    redirect to "/surveys/#{survey.id}/questions/new"
-    
-  else
-    @survey = survey
-    erb :surveys_change 
+    redirect to "/surveys/#{survey.id}/questions/new" 
   end
 end  
 
+get '/surveys/:survey_id/changes' do
+
+@survey = Survey.find(params[:survey_id])
+erb :surveys_change
+
+end
 
 get '/surveys/:survey_id/review' do
   @survey = Survey.find(params[:survey_id])
@@ -50,9 +52,9 @@ end
 
 
 
+
 post '/surveys/:survey_id/changes' do
   survey = Survey.find(params[:survey_id])
-
   survey.questions.each do |question| 
    question.update_attributes(q_content: params[:question][question.id.to_s])
     question.possible_answers.each do |answer|
