@@ -1,7 +1,24 @@
 post '/surveys/:survey_id/taken_surveys' do
+  begin
   current_survey = Survey.find(params[:survey_id])
-  TakenSurvey.create(survey_id: current_survey.id, user_id: 2)
-  redirect to "/surveys/#{current_survey.id}/questions/1"
+    TakenSurvey.create(survey_id: current_survey.id, user_id: session[:user_id])
+
+    session[:errors] = ""
+      #This needs to be fixed to not hard code question 1
+      next_question = next_question(current_survey)
+      redirect to "/surveys/#{current_survey.id}/questions/#{next_question.id}"
+        
+    puts "********************************"
+    puts @taken.errors
+    puts "********************************"
+
+    
+  rescue ActiveRecord::RecordNotUnique
+    session[:errors] = "You've allready taken that survey silly Gorilla!"
+
+      redirect '/'
+  end
+  
 end
 
 get '/surveys/:survey_id/questions/:question_id' do
