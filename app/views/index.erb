@@ -1,20 +1,23 @@
 <div class="container">
-  
-  
-  <h1>Welcome to Survey Gorilla!</h1>
 
-  <h2>Surveys You Can Take: </h2>
-  <ul>
+
+  <h1>Welcome!</h1>
+
+  <h2>Available Surveys: </h2>
+
+  <ul class="survey_list">
     <% @surveys.each do |survey_obj| %>
-      <li><form action="/surveys/<%= survey_obj.id %>/taken_surveys" method="POST">
-        <input type="submit" value="<%= survey_obj.title %>">
-      </form>
+
+      <li>
+        <form action="/surveys/<%= survey_obj.id %>/taken_surveys" method="POST">
+        <br><%= survey_obj.title %>&nbsp&nbsp<input type="submit" value="Go!"></form>
       </li>
     <% end %>
-  </ul>
-    
-      <p><%= session[:errors]  %></p>
-     
-  
-    
+    </ul>
+
+    <p><%= session[:errors]  %></p>
+
+
+
 </div>
+

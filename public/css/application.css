@@ -1,31 +1,7 @@
-/*possible color scheme colors
-medium blue: #38627E
-darker blue gray: #374F5E
-darkest blue: #123952
-light medium blue: #6F9FBE
-light blue: #84ABE*/
-/*
 
+/* Used Meyer's reset, photoshop, previous
+css files from other projects.
 
-/*possible color scheme colors
-medium light blue cyan: #00ACE9
-warm bright red: #D43F3F
-med sap green: #6A9A1F
-warm light beige: #F6F6E8
-dark warm gray: #404040   */
-/*
-
-.container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted #123952;
-  color: #38627E;
-}
-th {
-  text-align: left;
-}
-*/
 
 /* possible color scheme colors
 dark red brown: #660000
@@ -33,6 +9,65 @@ black-brown: #330000
 med sap green: #6A9A1F
 warmish red: #CC3300
 medium yellow: #FFCC00   */
+
+/*  Here's the reset
+    http://meyerweb.com/eric/tools/css/reset/
+    v2.0 | 20110126
+    License: none (public domain)
+*/
+
+/*images on minus:
+gorilla: http://i.minus.com/i5fK21aoXbxR8.png';
+little banana: http://i.minus.com/ibvmh1h7Zi554O.png
+midsize bannana: http://i.minus.com/i3suckdb87nM2.png;
+bigger banana: http://i.minus.com/ibnReiqcZdBAOC.png
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/********** end of css reset *******/
 
 
 
@@ -42,23 +77,63 @@ background-image:url('http://i.minus.com/i5fK21aoXbxR8.png');
 background-repeat:no-repeat;
 background-position:left top;
 font-family: 'Roboto', sans-serif;
-color: #330000;
+color: #CC3300;
+/*color: #330000;*/
 
 }
 
 .container {
+  margin: 180px auto;
+  width: 600px;
+  padding: 60px 20px 20px 100px;
+}
+
+/*nav {
+  float: right;
+}*/
+
+/*
+.text_button {
+  border: none;
+  padding: 3;
+  color: #CC3300;
+  font-size: 100%;
+  background-image:   url(http://i.minus.com/ibvmh1h7Zi554O.png);
+  background-position:left;
+  background-repeat:  no-repeat;
+  height: 100%;
+  border: none;
+}*/
+
+.navlink {
+  text-decoration:none;
+  color: #CC3300;
+/*  float; right;*/
+  font-size: 110%;
   margin: 20px auto;
   width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted #404040;
-  color: #404040;
+  text-align: center;
 }
-th {
-  text-align: left;
+
+.enterinfo {
+  width: 600px;
+  padding: 20px 20px 20px 20px;
+  font-size: 120%;
+  margin-bottom: 10px;
 }
 
 
-.edit{
+/* in index.erb file, landing page */
+.survey_list {
+font-size:135%
+}
+
+label {
+  font-size: 135%;
+}
+
+
+/*.edit{
   float: left;
 
 }
@@ -74,7 +149,6 @@ a:visited{
 }
 
 .newQuestion{
-
   border: 1px solid;
   border-color: lightblue;
   color: black;
@@ -85,13 +159,11 @@ a:visited{
   margin: 0 auto;
 
 }
-/*.top-nav {
-    background-color: grey;
+.nav {
     width: 100%;
     position: fixed;
     top: 0px;
     height: 64px;
-
 }
 
 .top-nav .container {
@@ -127,9 +199,9 @@ p {
     font-size: 14px;
     line-height: 24px;
     margin-bottom: 8px;
-}
+}*/
 
-h1, h2, h3 {
+/*h1, h2, h3 {
     font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
 }
@@ -144,5 +216,5 @@ h2 {
 .resultstables td{
   border: solid 1px gray;
   padding: 5px;
-}
-*/
+}*/
+

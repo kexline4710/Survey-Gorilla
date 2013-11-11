@@ -1,11 +1,11 @@
-
+<div class="container"
 <div id="edit" class="forms">
   <!-- <h1><%= @survey.title %></h1> -->
 <form action="/surveys/<%= @survey.id%>/changes" method="POST">
   <fieldset>
     <h1><%= @survey.title %></h1>
     <input type='text' value="<%= @survey.title%>">
-  
+
 </fieldset>
   <% questions = @survey.questions.order("id asc") %>
     <% questions.each do |question| %>
@@ -15,13 +15,14 @@
       <fieldset>
         <% answers = question.possible_answers.order("id asc") %>
         <% answers.each do |answer| %>
-        
+
           <input type="text" value="<%= answer.a_content %>" name="answer[<%= answer.id%>]"/>
         <% end %>
       </fieldset>
-    <% end %> 
-    
+    <% end %>
+
       <input type="submit" value="Finish!"/>
-    </form>   
-   
+    </form>
+
+</div>
 </div>
