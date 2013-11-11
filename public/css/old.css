@@ -1,0 +1,129 @@
+/* possible color scheme colors
+dark red brown: #660000
+black-brown: #330000
+med sap green: #6A9A1F
+warmish red: #CC3300
+medium yellow: #FFCC00   */
+
+body
+{
+background-image:url('http://i.minus.com/i5fK21aoXbxR8.png');
+background-repeat:no-repeat;
+background-position:left top;
+font-family: 'Roboto', sans-serif;
+color: #CC3300;
+/*color: #330000;*/
+
+}
+
+.container {
+  margin: 200px auto;
+  width: 600px;
+  padding: 0px 20px 20px 100px;
+}
+
+nav {
+  float: right;
+}
+
+
+.text_button {
+   border: none;
+   background-color: transparent;
+   padding: 0;
+   color: #CC3300;
+   vertical-align:bottom;
+   overflow:visible;
+
+}
+
+.navlink {
+  text-decoration:none;
+  color: #CC3300;
+}
+
+.edit{
+  float: left;
+
+}
+
+a:link{
+  text-decoration:none;
+  color: black;
+}
+
+a:visited{
+  text-decoration:none;
+  color: black;
+}
+
+.newQuestion{
+  border: 1px solid;
+  border-color: lightblue;
+  color: black;
+  border-radius: 15px;
+  background-color: lightblue;
+  width: 300px;
+  box-shadow: 10px 10px 5px #888888;
+  margin: 0 auto;
+
+}
+.nav {
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    height: 64px;
+}
+
+.top-nav .container {
+    width: 400px;
+    margin: 0px auto;
+    vertical-align: middle;
+    padding-top: 16px;
+}
+
+.top-nav h1 {
+    font-size: 32px;
+    color: white;
+    display: inline;
+}
+
+.top-nav ul, li, a {
+    display: inline;
+    text-decoration: none;
+    font-family: sans-serif;
+    color: white;
+    padding-right: 8px;
+    float: right;
+    }
+
+.content  {
+    margin: 0px auto;
+    width: 400px;
+    z-index: -1;
+}
+
+p {
+    font-family: Georgia, serif;
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 8px;
+}
+
+/*h1, h2, h3 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}*/
+
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 48px;
+}
+
+.resultstables td{
+  border: solid 1px gray;
+  padding: 5px;
+}
+

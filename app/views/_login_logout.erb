@@ -1,24 +1,36 @@
+<div class="navlink">
+
 <% if session[:user_id] %>
-  
-<form action="/" method="get">
-    <input type="submit" value="Home">
-</form>
-<form action="/logout" method get>
-    <input type="submit" value="Logout">
-</form>
-<form action="/profile" method get>
-  <input type="submit" value="Hi, <%= current_user.username %>">
-</form>
+
+<table class="navlink">
+<tr>
+  <td><img src="http://i.minus.com/i3suckdb87nM2.png" alt="banana_bunch_nav_icon"></td>
+<!--   <a href="/" class="navlink"> Home </a> -->
+
+  <td><img src="http://i.minus.com/i3suckdb87nM2.png" alt="banana_bunch_nav_icon"></td>
+ <!--  <a href="/logout" class="navlink" alt="banana_bunch_nav_icon"> Logout </a> -->
+
+  <td><img src="http://i.minus.com/i3suckdb87nM2.png" alt="banana_bunch_nav_icon"></td></tr>
 
 
-
+  <tr>
+    <td><a href="/" class="navlink"> Home </a></td>
+    <td><a href="/logout" class="navlink"> Logout </a></td>
+    <td><a href="/profile" class="navlink"> <%= current_user.username %> Profile </a></td></tr>
+</table>
   <% else %>
     <% if @login_page.nil? %>
-<form action="/login_page" method get>
-    <input type="submit" value="Login">
-</form>
+<!--       <img src="http://i.minus.com/ibnReiqcZdBAOC.png" alt="banana_bunch_nav_icon"> -->
+    <table>
+      <tr>
+        <td><img src="http://i.minus.com/i3suckdb87nM2.png" alt="banana_bunch_nav_icon"></td>
+      </tr>
+      <tr>
+        <td><a href="/login_page" class="navlink">Login</a></td>
+      </tr>
+    </table>
     <% end %>
   <% end %>
- 
 
-  
+
+</nav>
