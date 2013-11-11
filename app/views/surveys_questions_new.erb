@@ -1,5 +1,5 @@
 <div class="container survey_container">
-
+   <h1><img src="<%= @survey_img.file.thumb.url %>"/> <%= @survey.title %><h1>
   <form action='/surveys/<%= @survey_id %>/edit' class="form" method="POST">
     <div id="addInput">
       <p>

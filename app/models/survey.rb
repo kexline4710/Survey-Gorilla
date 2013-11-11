@@ -4,6 +4,7 @@ class Survey < ActiveRecord::Base
   has_many :questions
   has_many :completers, class_name: "User", foreign_key: :user_id, through: :taken_surveys
   has_many :answers_users, through: :questions
+  has_many :uploads
 
   validates :title, uniqueness: true
 end

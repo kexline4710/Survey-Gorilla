@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :surveys
   has_many :answers_users
   has_many :taken_surveys
+  has_many :uploads
 
   def password
     @password ||= Password.new(password_hash)

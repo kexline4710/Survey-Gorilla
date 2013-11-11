@@ -1,18 +1,10 @@
 <div class="container survey_container">
   <form action='/surveys' method="POST">
-    <p>
       <label>Please enter a survey title</label>
       <input type="text" name="survey_title"/>
-    </p>
-    <p>
-      <label>Upload a picture(placeholder)</label>
-      <input/>
-    </p>
-    <p>
-      <input type="submit" value="Submit"/>
-    </p>
-  </form>
+      <input class="submitTitle" type="submit" value="Submit"/>
+    </form>
   <% if @error_message %>
-    <p><%= @error_message%></p>
+    <p id="error_message"><%= @error_message%></p>
   <% end %>
 </div>

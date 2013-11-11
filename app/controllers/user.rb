@@ -12,9 +12,20 @@ end
 
 get '/profile' do
   @user = User.find(session[:user_id])
-
+  
+if session[:avatar]
+  @avatar = @user.uploads.first
+end
   erb :profile
 end
+
+post '/profile' do
+@user = User.find(session[:user_id])
+@user.uploads << Upload.create(file: params[:image])
+session[:avatar]=true
+redirect to ('/profile')
+end
+
 
 post '/login' do
   @username = params[:username]
