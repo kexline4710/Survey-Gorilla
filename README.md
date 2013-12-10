@@ -1,14 +1,6 @@
 #Survey Gorilla
 ===================
-A simple survey built in phase 2 of DBC.
-
-To Run
--------------------
-```ruby
-bundle install
-rake db:create
-rake db:migrate
-```
+A simple survey site built in phase 2 of DBC on Sinatra. 
 
 Schema
 http://minus.com/lEZoBLyaXVAtq
